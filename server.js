@@ -5,6 +5,8 @@ const MOVIEDEX = require('./moviedex.json')
 const cors = require('cors')
 const helmet = require('helmet')
 
+console.log(process.env.API_TOKEN)
+
 const app = express()
 
 app.use(morgan('dev'))
