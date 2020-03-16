@@ -1,5 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
+const MOVIEDEX = require('./moviedex.json')
 
 const app = express()
 
@@ -13,5 +15,5 @@ app.use((req, res) => {
 PORT = 8000
 
 app.listen(PORT, () => {
-    console.log('Hello, from express')
+    console.log('Hello from express !')
 })
