@@ -2,10 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const MOVIEDEX = require('./moviedex.json')
+const cors = require('cors')
+const helmet = require('helmet')
 
 const app = express()
 
 app.use(morgan('dev'))
+app.use(helmet())
+app.use(cors())
 
 app.use(function validateBearerToken(req, res, next){
     const apiToken = process.env.API_TOKEN
@@ -22,17 +26,7 @@ app.get('/movies', function handleGetMovies(req, res) {
     res.send('Here are your movies')
 })
 
-app.get('/genre', function handleGenre(req,res) {
-    res.send('here is you genre')
-})
 
-app.get('/country', function handleCountry(req,res){
-    res.send('Here are you movies by country')
-})
-
-app.get('/avg_vote', function handleVote(req, res){
-    req.send('Here are your movies by vote')
-})
 
 PORT = 8000
 
